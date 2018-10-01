@@ -62,25 +62,29 @@ run_once({ "unclutter -root" }) -- entries must be comma-separated
 local chosen_theme = "powerarrow-dark"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "terminology"
+local terminal     = "konsole"
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "gvim"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "main", "dev1", "dev2", "win", "overflow" }
+awful.util.tagnames = { "main", "dev1", "dev2", "dev3", "win", "overflow" }
 local l = awful.layout.suit
+local lainterm = lain.layout.termfair
+lainterm.nmaster = 1
+lainterm.ncol = 1
+
 awful.layout.layouts = {
     l.floating,
-    l.tile.left,
-    l.floating,
-    l.tile.left,
-    l.floating,
-    l.tile.left,
-    l.floating,
-    l.tile.left,
-    l.floating,
-    l.tile.left
+    -- l.fair.horizontal,
+    l.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- l.tile.left,
+    -- l.fair,
+    -- lain.layout.cascade,
+    -- lain.layout.centerwork,
+    -- lain.layout.centerwork.horizontal,
+    -- lain.layout.termfair
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
     --awful.layout.suit.tile.left,
